@@ -10,7 +10,13 @@ class ShoppingListController extends Controller
     public function index()
     {
         $shoppingListItems = ShoppingListItem::all();
-        return view('shopping-list.index', compact('shoppingListItems'));
+
+        $totalAmount = 0;
+        foreach ($shoppingListItems as $item) {
+            $totalAmount += $item->price;
+        }
+
+        return view('shopping-list.index', compact('shoppingListItems', 'totalAmount'));
     }
 
     public function create()
