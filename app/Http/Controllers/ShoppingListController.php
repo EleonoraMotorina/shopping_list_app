@@ -57,9 +57,9 @@ class ShoppingListController extends Controller
         return redirect()->route('shopping-list.index');
     }
 
-    public function getTotalAmount()
-    {
-        $totalAmount = ShoppingListItem::sum('price');
-        return view('shopping-list.total', compact('totalAmount'));
-    }
+    // public function getTotalAmount()
+    // {
+    //     $totalAmount = ShoppingListItem::sum('price');
+    //     return view('shopping-list.total', compact('totalAmount'));
+    // }
 }
