@@ -31,6 +31,6 @@
 </table>
 <p>Total Amount: {{ $totalAmount ?? '' }}</p>
 
-<a href="{{ route('shopping-list.index') }}" class="btn btn-dark">Calculate Total Amount</a>
+<!-- <a href="{{ route('shopping-list.index') }}" class="btn btn-dark">Calculate Total Amount</a> -->
 
 @endsection
