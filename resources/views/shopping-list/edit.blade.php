@@ -1,4 +1,5 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
+
 
 @section('content')
 <h1>Edit Item</h1>
