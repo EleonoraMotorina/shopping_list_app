@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShoppingListController;
 
-Route::get('/', [ShoppingListController::class, 'index'])->name('shopping-list.index');
+Route::get('/shopping-list/index', [ShoppingListController::class, 'index'])->name('shopping-list.index');
 Route::get('/shopping-list/create', [ShoppingListController::class, 'create'])->name('shopping-list.create');
 Route::post('/shopping-list', [ShoppingListController::class, 'store'])->name('shopping-list.store');
 Route::get('/shopping-list/{id}/edit', [ShoppingListController::class, 'edit'])->name('shopping-list.edit');
