@@ -11,13 +11,11 @@ class ShoppingListController extends Controller
     {
         $shoppingListItems = ShoppingListItem::all();
 
-        $totalAmount = 0;
-        foreach ($shoppingListItems as $item) {
-            $totalAmount += $item->price;
-        }
+        $totalAmount = $shoppingListItems->sum('price');
 
         return view('shopping-list.index', compact('shoppingListItems', 'totalAmount'));
     }
+
 
     public function create()
     {
