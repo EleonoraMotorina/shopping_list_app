@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".delete-button").forEach(e=>{e.addEventListener("click",function(o){o.preventDefault();const t=e.getAttribute("data-item-id"),n=window.confirm("Are you sure you want to delete this item?");console.log(n?`Item with ID ${t} will be deleted.`:`Deletion of item with ID ${t} was canceled.`)})})});

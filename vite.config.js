@@ -4,7 +4,7 @@ import laravel from 'laravel-vite-plugin';
 export default defineConfig({
     plugins: [
         laravel([
-             'resources/js/index.js',
+            'resources/js/index.js',
         ]),
     ],
 });

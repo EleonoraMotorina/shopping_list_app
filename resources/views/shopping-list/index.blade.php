@@ -31,7 +31,8 @@
 </table>
 <p>Total Amount: {{ $totalAmount ?? '' }}</p>
 
-<script type="module" src="{{ asset('assets/@vitejs/index.js') }}"></script>
+<script type="module" src="{{ asset('dist/index.js') }}"></script>
+
 
 
 @endsection
