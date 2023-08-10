@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ShoppingListItem;
+use Illuminate\Support\Facades\Validator;
 
 class ShoppingListController extends Controller
 {
+
     public function index()
     {
         $shoppingListItems = ShoppingListItem::all();
@@ -16,7 +18,6 @@ class ShoppingListController extends Controller
         return view('shopping-list.index', compact('shoppingListItems', 'totalAmount'));
     }
 
-
     public function create()
     {
         return view('shopping-list.create');
@@ -24,12 +25,19 @@ class ShoppingListController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string',
-            'price' => 'required|numeric',
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|min:2',
+            'price' => 'required|numeric|min:0',
         ]);
 
-        ShoppingListItem::create($data);
+        if ($validator->fails()) {
+            return redirect()
+                ->route('shopping-list.create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        ShoppingListItem::create($request->all());
 
         return redirect()->route('shopping-list.index');
     }
@@ -42,13 +50,20 @@ class ShoppingListController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
-            'name' => 'required|string',
-            'price' => 'required|numeric',
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|min:2',
+            'price' => 'required|numeric|min:0',
         ]);
 
+        if ($validator->fails()) {
+            return redirect()
+                ->route('shopping-list.edit', $id)
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $shoppingListItem = ShoppingListItem::findOrFail($id);
-        $shoppingListItem->update($data);
+        $shoppingListItem->update($request->all());
 
         return redirect()->route('shopping-list.index');
     }
