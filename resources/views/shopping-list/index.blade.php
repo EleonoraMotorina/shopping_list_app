@@ -31,7 +31,7 @@
 </table>
 <p>Total Amount: {{ $totalAmount ?? '' }}</p>
 
-<script type="module" src="{{ asset('dist/index.js') }}"></script>
+<script type="module" src="{{ asset('assets/js/index.js') }}"></script>
 
 
 

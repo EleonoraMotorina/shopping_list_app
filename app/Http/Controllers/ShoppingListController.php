@@ -70,9 +70,14 @@ class ShoppingListController extends Controller
 
     public function destroy($id)
     {
-        $shoppingListItem = ShoppingListItem::findOrFail($id);
-        $shoppingListItem->delete();
+        try {
+            $shoppingListItem = ShoppingListItem::findOrFail($id);
+            $shoppingListItem->delete();
 
+            return response()->json(['message' => 'Item deleted successfully'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to delete item'], 500);
+        }
         return redirect()->route('shopping-list.index');
     }
 
