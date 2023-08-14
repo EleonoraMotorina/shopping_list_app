@@ -97,11 +97,20 @@ return [
         'array' => 'The :attribute must have at least :min items.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value.',
+    'name' => [
+        'required' => 'The name field is required.',
+        'min' => 'The name must be at least 2 characters.',
+    ],
+
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',
     'numeric' => 'The :attribute must be a number.',
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
+    'price' => [
+        'required' => 'The price field is required.',
+        'numeric' => 'The price must be greater or equal to 0.',
+    ],
     'prohibited' => 'The :attribute field is prohibited.',
     'prohibited_if' => 'The :attribute field is prohibited when :other is :value.',
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',

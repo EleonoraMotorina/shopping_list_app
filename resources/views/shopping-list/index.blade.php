@@ -22,7 +22,7 @@
                 <form action="{{ route('shopping-list.destroy', $item->id) }}" method="POST" style="display: inline">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    <button class="btn btn-sm btn-danger delete-button" data-item-id="{{ $item->id }}">Delete</button>
                 </form>
             </td>
         </tr>
@@ -31,6 +31,8 @@
 </table>
 <p>Total Amount: {{ $totalAmount ?? '' }}</p>
 
-<!-- <a href="{{ route('shopping-list.index') }}" class="btn btn-dark">Calculate Total Amount</a> -->
+<script type="module" src="{{ asset('assets/js/index.js') }}"></script>
+
+
 
 @endsection
